@@ -7,7 +7,7 @@ require 'net/https'
 require 'uri'
 
 module Sms16Client
-	VERSION = '0.0.1'
+	VERSION = '0.0.2'
 	
 	class Client
 		attr_accessor :login, :password, :query
