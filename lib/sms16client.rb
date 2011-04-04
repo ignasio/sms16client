@@ -19,6 +19,7 @@ module Sms16Client
 		end
 		
 		def get_balance
+		  @query = String.new
 			xml = Builder::XmlMarkup.new(:target => @query)
 
 			xml.request {
@@ -32,6 +33,7 @@ module Sms16Client
 		end
 		
 		def send_message(message, destination, source)
+		  @query = String.new
 			xml = Builder::XmlMarkup.new(:target => @query)
 
 			xml.request {
@@ -50,6 +52,7 @@ module Sms16Client
 		end
 		
 		def get_message_state(message_id)
+		  @query = String.new
 			xml = Builder::XmlMarkup.new(:target => @query)
 			
 			xml.request {
