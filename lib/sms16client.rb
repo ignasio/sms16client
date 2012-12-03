@@ -1,27 +1,30 @@
 # encoding: utf-8
 
+$:.push File.expand_path(File.dirname(__FILE__) + "/../lib")
+
 # stdlib
-require 'builder'
 require 'net/http'
 require 'net/https'
 
 # external dependency
+require 'builder'
 require 'sax-machine'
-require 'pry'
 
 class Sms16Client
   Version = '0.0.3'
 
-  def initialize(login, password)
-    @client = Client.new(login, password)
+  def self.new(login, password)
+    Client.new(login, password)
   end
 
-  def method_missing(method_name, *args, &block)
-    return super unless @client.respond_to?(method_name)
-    @client.send(method_name, *args, &block)
-  end
-  
-  class Client < Struct.new(:login, :password)
+  class Client
+    attr_accessor :login, :password
+
+    def initialize(login, password)
+      @login = login
+      @password = password
+    end
+
     def get_balance
       query = ""
       
@@ -83,7 +86,7 @@ class Sms16Client
     end
 
     def parse_response(response)
-      binding.pry
+      response
     end
   end
 end

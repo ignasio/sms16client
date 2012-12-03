@@ -17,4 +17,4 @@ Sms16Client is a gem that provides an interface for sms16.ru API.
 
 ## Installation
 
-  gem install sms16client
+    gem install sms16client
