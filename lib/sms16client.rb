@@ -10,6 +10,9 @@ require 'net/https'
 require 'builder'
 require 'sax-machine'
 
+# internal dependency
+require 'sms16client/parser'
+
 class Sms16Client
   Version = '0.0.3'
 
@@ -86,7 +89,59 @@ class Sms16Client
     end
 
     def parse_response(response)
-      response
+      response = Response.parse(response)
+
+      return error_response(response) if response.error? 
+      return balance_response(response) if response.money?
+      return information_response(response) if response.information?
+      return state_response(response) if response.state?
+    end
+
+    def error_response(response)
+      {
+        :error => response.error
+      }
+    end
+
+    def balance_response(response)
+      {
+        :money => {
+          :currency => response.money.currency,
+          :amount => response.money.text
+        },
+        :sms => [
+          {
+            :area => response.sms[0].area,
+            :amount => response.sms[0].text
+          },
+          {
+            :area => response.sms[1].area,
+            :amount => response.sms[1].text
+          }
+        ] 
+      }
+    end
+
+    def information_response(response)
+      {
+        :information => {
+          :number_sms => response.information.number_sms,
+          :id_sms => response.information.id_sms,
+          :parts => response.information.parts,
+          :response => response.information.text
+        }
+      }
+    end
+
+    def state_response(response)
+      {
+        :state => {
+          :id_sms => response.state.id_sms,
+          :time => response.state.time,
+          :err => response.state.err,
+          :response => response.state.text
+        }
+      }
     end
   end
 end
