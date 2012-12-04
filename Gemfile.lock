@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sms16client (0.0.3)
+    sms16client (0.1.0)
       builder
       sax-machine
 
