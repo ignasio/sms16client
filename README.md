@@ -6,8 +6,6 @@ Sms16Client is a gem that provides an interface for sms16.ru API.
 
 ```ruby
 sms16 = Sms16Client.new 'username', 'password'
-# or you can use Sms16Client::Client directly
-# Sms16Client::Client.new 'username', 'password'
 
 sms16.get_balance
 # => {:money=>{:currency=>"RUR", :amount=>"3924.45"}, :sms=>[{:area=>"Россия", :amount=>"26163"}, {:area=>"Украина", :amount=>"0"}]}
