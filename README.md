@@ -20,3 +20,10 @@ sms16.get_message_state "111"
 ## Installation
 
     gem install sms16client
+
+## Changelog
+
+    0.1.0 - Minor release that includes:
+      - Remove obsolete class Client
+      - Change method responses from original sms16.ru api xml's to your own hashes
+      - Update README, add LICENSE and specs
