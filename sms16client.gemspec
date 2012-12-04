@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'fakeweb'
 
-  spec.version = '0.0.3'
+  spec.version = '0.1.0'
   spec.files = `git ls-files`.split("\n")
   spec.homepage = 'http://github.com/kohgpat/sms16client'
   spec.licenses = ['MIT']
