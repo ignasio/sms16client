@@ -25,5 +25,5 @@ sms16.get_message_state "111"
 
     0.1.0 - Minor release that includes:
       - Remove obsolete class Client
-      - Change method responses from original sms16.ru api xml's to your own hashes
+      - Change method responses from original sms16.ru api xml's to our own hashes
       - Update README, add LICENSE and specs
