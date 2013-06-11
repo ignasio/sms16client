@@ -108,10 +108,6 @@ class Sms16Client
         {
           :area => response.sms[0].area,
           :amount => response.sms[0].text
-        },
-        {
-          :area => response.sms[1].area,
-          :amount => response.sms[1].text
         }
       ] 
     }
