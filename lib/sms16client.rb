@@ -117,6 +117,7 @@ class Sms16Client
     {
       :information => {
         :number_sms => response.information.number_sms,
+        :cost => response.information.cost,
         :id_sms => response.information.id_sms,
         :parts => response.information.parts,
         :response => response.information.text
