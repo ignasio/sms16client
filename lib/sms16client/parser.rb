@@ -16,6 +16,7 @@ class Sms16Client
     attribute :number_sms
     attribute :id_sms
     attribute :parts
+    attribute :cost
     value :text
   end
 
